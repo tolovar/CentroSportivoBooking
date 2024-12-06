@@ -1,6 +1,7 @@
 
 package com.sportcenter.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -30,7 +31,7 @@ public class Utente {
         joinColumns = @JoinColumn(name = "user_id"), // Colonna di join per User
         inverseJoinColumns = @JoinColumn(name = "role_id") // Colonna di join per Role
     )
-    private Set<Ruolo> ruoli;
+    private Set<Ruolo> ruolo = new HashSet<>();
 
     // Getter e Setter
     public Long getId() {
@@ -65,12 +66,12 @@ public class Utente {
         this.password = password;
     }
 
-    public Set<Ruolo> getRuoli() {
-        return ruoli;
+    public Set<Ruolo> getRuolo() {
+        return ruolo;
     }
 
-    public void setRuoli(Set<Ruolo> ruoli) {
-        this.ruoli = ruoli;
+    public void setRuolo(Set<Ruolo> ruolo) {
+        this.ruolo = ruolo;
     }
 
 }
